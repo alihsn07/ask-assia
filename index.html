@@ -77,6 +77,21 @@
     <script>
         let noButton = document.getElementById('noButton');
 
+        // طلب إذن لإرسال الإشعارات عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', requestNotificationPermission);
+
+        function requestNotificationPermission() {
+            if (Notification.permission !== 'granted') {
+                Notification.requestPermission().then(permission => {
+                    if (permission === 'granted') {
+                        console.log('Permission for notifications granted.');
+                    } else {
+                        console.log('Permission for notifications denied.');
+                    }
+                });
+            }
+        }
+
         function moveNoButton() {
             let x = Math.random() * 300 - 150;
             let y = Math.random() * 300 - 150;
@@ -89,6 +104,14 @@
                 responseText.textContent = "yupyyy, i love my girl(assiiiiii)";
                 document.getElementById('fireworks').style.display = 'block';
                 document.getElementById('tiktokVideo').style.display = 'block';
+
+                // إرسال إشعار عند الضغط على زر Yes
+                if (Notification.permission === 'granted') {
+                    new Notification('Assia said Yes!', {
+                        body: "yupyyy, I love my girl(assiiiiii)! 🎉",
+                        icon: 'https://example.com/path-to-icon.png' // إذا كان لديك أيقونة مخصصة، يمكنك إضافتها هنا
+                    });
+                }
             }
         }
     </script>
