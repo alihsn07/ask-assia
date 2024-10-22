@@ -52,10 +52,6 @@
             width: 200px;
             margin-top: 20px;
         }
-        .tiktok-video {
-            display: none;
-            margin-top: 20px;
-        }
         .firework-container {
             display: none;
         }
@@ -70,48 +66,21 @@
         <div class="firework-container" id="fireworks">
             🎉🎉🎉🎉🎉🎉🎉🎉
         </div>
-        <!-- تضمين فيديو TikTok -->
-        <iframe class="tiktok-video" id="tiktokVideo" src="file:///C:/Users/user/Desktop/happy.mp4" frameborder="0" allowfullscreen></iframe>
+        <img src="file:///C:/Users/user/Desktop/happy.mp4" class="cat" id="dancingCat" alt="Dancing Cat">
     </div>
-
     <script>
         let noButton = document.getElementById('noButton');
-
-        // طلب إذن لإرسال الإشعارات عند تحميل الصفحة
-        document.addEventListener('DOMContentLoaded', requestNotificationPermission);
-
-        function requestNotificationPermission() {
-            if (Notification.permission !== 'granted') {
-                Notification.requestPermission().then(permission => {
-                    if (permission === 'granted') {
-                        console.log('Permission for notifications granted.');
-                    } else {
-                        console.log('Permission for notifications denied.');
-                    }
-                });
-            }
-        }
-
         function moveNoButton() {
             let x = Math.random() * 300 - 150;
             let y = Math.random() * 300 - 150;
             noButton.style.transform = `translate(${x}px, ${y}px)`;
         }
-
         function showResponse(answer) {
             const responseText = document.getElementById('response');
             if (answer === 'Yes') {
-                responseText.textContent = "yupyyy, i love you my girl(assiiiiii)";
+                responseText.textContent = "Yupyyyy, I LOVE YOU ASSIA \n I LOVE YOU MY GIRL, MY PRINCESSSSSSSSSS!";
                 document.getElementById('fireworks').style.display = 'block';
-                document.getElementById('tiktokVideo').style.display = 'block';
-
-                // إرسال إشعار عند الضغط على زر Yes
-                if (Notification.permission === 'granted') {
-                    new Notification('Assia said Yes!', {
-                        body: "yupyyy, I love my girl(assiiiiii)! 🎉",
-                        icon: 'https://example.com/path-to-icon.png' // إذا كان لديك أيقونة مخصصة، يمكنك إضافتها هنا
-                    });
-                }
+                document.getElementById('dancingCat').style.display = 'block';
             }
         }
     </script>
