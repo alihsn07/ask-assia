@@ -52,6 +52,10 @@
             width: 200px;
             margin-top: 20px;
         }
+        .tiktok-video {
+            display: none;
+            margin-top: 20px;
+        }
         .firework-container {
             display: none;
         }
@@ -66,7 +70,8 @@
         <div class="firework-container" id="fireworks">
             🎉🎉🎉🎉🎉🎉🎉🎉
         </div>
-        <img src="https://media.giphy.com/media/Ju7l5y9osyymQ/giphy.gif" class="cat" id="dancingCat" alt="Dancing Cat">
+        <!-- تضمين فيديو TikTok -->
+        <iframe class="tiktok-video" id="tiktokVideo" src="https://www.tiktok.com/embed/v2/ZSjdP7bEY" frameborder="0" allowfullscreen></iframe>
     </div>
 
     <script>
@@ -81,9 +86,9 @@
         function showResponse(answer) {
             const responseText = document.getElementById('response');
             if (answer === 'Yes') {
-                responseText.textContent = "Yupyyyy, I love Assia!";
+                responseText.textContent = "yupyyy, i love my girl(assiiiiii)";
                 document.getElementById('fireworks').style.display = 'block';
-                document.getElementById('dancingCat').style.display = 'block';
+                document.getElementById('tiktokVideo').style.display = 'block';
             }
         }
     </script>
